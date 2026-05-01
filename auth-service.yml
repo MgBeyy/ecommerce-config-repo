@@ -12,7 +12,7 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/auth_db
+    url: jdbc:postgresql://localhost:5432/ecommerce_auth_db
     username: ${DB_USER}
     password: ${DB_PASS}
   jpa:
