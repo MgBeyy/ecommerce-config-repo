@@ -13,7 +13,7 @@ spring:
       on-profile: dev
   cloud:
     gateway:
-      webmvc:
+      mvc:
         routes:
           - id: auth-service
             uri: lb://auth-service
@@ -22,9 +22,7 @@ spring:
           - id: product-service
             uri: lb://product-service
             predicates:
-              - Path=/product-service/v3/api-docs/**, /api/v1/products/** 
-            filters:
-              - RewritePath=/product-service/(?<segment>.*), /$\{segment}
+              - Path=/api/v1/products/**
   springdoc:
     api-docs:
       enabled: true
@@ -52,7 +50,7 @@ spring:
       on-profile: docker
   cloud:
     gateway:
-      webmvc:
+      mvc:
         routes:
           - id: auth-service
             uri: lb://auth-service
