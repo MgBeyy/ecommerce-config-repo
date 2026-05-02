@@ -2,6 +2,10 @@
 server:
   port: 8082
 
+springdoc:
+  api-docs:
+    path: /api/v1/products/v3/api-docs
+
 ---
 # Dev Profili
 spring:
