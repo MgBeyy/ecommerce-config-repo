@@ -8,7 +8,7 @@ springdoc:
   swagger-ui:
     urls:
       - name: Product Service
-        url: /v3/api-docs/product-service
+        url: /api/v1/products/v3/api-docs
 ---
 # Dev Profili
 spring:
@@ -19,12 +19,6 @@ spring:
     gateway:
       webmvc:
         routes:
-          - id: product-service-docs
-            uri: lb://product-service
-            predicates:
-              - Path=/v3/api-docs/product-service
-            filters:
-              - SetPath=/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
@@ -48,12 +42,6 @@ spring:
     gateway:
       webmvc:
         routes:
-          - id: product-service-docs
-            uri: lb://product-service
-            predicates:
-              - Path=/v3/api-docs/product-service
-            filters:
-              - SetPath=/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
