@@ -19,6 +19,10 @@ spring:
     gateway:
       webmvc:
         routes:
+          - id: product-service-docs
+            uri: lb://product-service
+            predicates:
+              - Path=/api/v1/products/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
@@ -42,6 +46,10 @@ spring:
     gateway:
       webmvc:
         routes:
+          - id: product-service-docs
+            uri: lb://product-service
+            predicates:
+              - Path=/api/v1/products/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
