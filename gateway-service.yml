@@ -22,8 +22,7 @@ spring:
               uri: lb://product-service
               predicates:
                 - Path=/api/v1/product/**
-              filters:
-                - AuthenticationFilter
+
 eureka:
   client:
     service-url:
@@ -47,8 +46,6 @@ spring:
               uri: lb://product-service
               predicates:
                 - Path=/api/v1/product/**
-              filters:
-                - AuthenticationFilter
 
 eureka:
   client:
