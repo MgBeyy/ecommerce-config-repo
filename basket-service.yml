@@ -1,0 +1,41 @@
+# Ortak Ayarlar
+server:
+  port: 8083
+
+spring:
+  application:
+    name: basket-service
+
+---
+# Dev Profili (Yerel Geliştirme)
+spring:
+  config:
+    activate:
+      on-profile: dev
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+---
+# Docker Profili
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    redis:
+      host: redis-server # Docker Compose üzerindeki servis adı
+      port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    prefer-ip-address: true
