@@ -22,7 +22,20 @@ spring:
           - id: product-service
             uri: lb://product-service
             predicates:
-              - Path=/api/v1/products/**
+              - Path=/product-service/v3/api-docs/**, /api/v1/products/** 
+  springdoc:
+    api-docs:
+      enabled: true
+      path: /v3/api-docs
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
+      config-url: /v3/api-docs/swagger-config
+      urls:
+        - name: Gateway
+          url: /v3/api-docs
+        - name: Product Service
+          url: /product-service/v3/api-docs
 
 eureka:
   client:
