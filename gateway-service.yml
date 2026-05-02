@@ -24,7 +24,7 @@ spring:
             predicates:
               - Path=/v3/api-docs/product-service
             filters:
-              - RewritePath=/v3/api-docs/product-service, /v3/api-docs
+              - SetPath=/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
@@ -53,7 +53,7 @@ spring:
             predicates:
               - Path=/v3/api-docs/product-service
             filters:
-              - RewritePath=/v3/api-docs/product-service, /v3/api-docs
+              - SetPath=/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
