@@ -3,6 +3,12 @@ server:
   port: 8080
 jwt:
   secret: ${JWT_SECRET} # .env dosyasından Config Server aracılığıyla veya environment variable olarak gelecek
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: Product Service
+        url: /v3/api-docs/product-service
 ---
 # Dev Profili
 spring:
@@ -13,6 +19,12 @@ spring:
     gateway:
       webmvc:
         routes:
+          - id: product-service-docs
+            uri: lb://product-service
+            predicates:
+              - Path=/v3/api-docs/product-service
+            filters:
+              - RewritePath=/v3/api-docs/product-service, /v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
@@ -36,6 +48,12 @@ spring:
     gateway:
       webmvc:
         routes:
+          - id: product-service-docs
+            uri: lb://product-service
+            predicates:
+              - Path=/v3/api-docs/product-service
+            filters:
+              - RewritePath=/v3/api-docs/product-service, /v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
