@@ -8,7 +8,7 @@ springdoc:
   swagger-ui:
     urls:
       - name: Product Service
-        url: /api/v1/products/v3/api-docs
+        url: /docs/product-service
 ---
 # Dev Profili
 spring:
@@ -22,7 +22,9 @@ spring:
           - id: product-service-docs
             uri: lb://product-service
             predicates:
-              - Path=/api/v1/products/v3/api-docs
+              - Path=/docs/product-service
+            filters:
+              - SetPath=/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
@@ -49,7 +51,9 @@ spring:
           - id: product-service-docs
             uri: lb://product-service
             predicates:
-              - Path=/api/v1/products/v3/api-docs
+              - Path=/docs/product-service
+            filters:
+              - SetPath=/v3/api-docs
           - id: auth-service
             uri: lb://auth-service
             predicates:
