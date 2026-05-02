@@ -23,6 +23,8 @@ spring:
             uri: lb://product-service
             predicates:
               - Path=/product-service/v3/api-docs/**, /api/v1/products/** 
+            filters:
+              - RewritePath=/product-service/(?<segment>.*), /$\{segment}
   springdoc:
     api-docs:
       enabled: true
