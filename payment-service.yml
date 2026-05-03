@@ -23,13 +23,18 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: guest
-    password: guest
+    username: admin
+    password: password123
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+iyzico:
+  api-key: ${IYZICO_API_KEY}
+  secret-key: ${IYZICO_SECRET_KEY}
+  base-url: https://sandbox-api.iyzipay.com
 
 ---
 # Docker Profili
@@ -38,7 +43,7 @@ spring:
     activate:
       on-profile: docker
   datasource:
-    url: jdbc:postgresql://postgres-server:5432/payment_db # Docker Compose'daki DB servis adı
+    url: jdbc:postgresql://postgres-server:5432/payment_db
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:password}
   jpa:
@@ -46,7 +51,7 @@ spring:
       ddl-auto: update # MVP aşamasında update kalabilir. Sonrasında Flyway/Liquibase'e geçilmeli.
     show-sql: false
   rabbitmq:
-    host: rabbitmq-server # Docker Compose'daki RabbitMQ servis adı
+    host: rabbitmq-server
     port: 5672
 
 eureka:
