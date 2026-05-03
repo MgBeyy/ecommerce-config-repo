@@ -14,8 +14,8 @@ spring:
       on-profile: dev
   datasource:
     url: jdbc:postgresql://localhost:5432/payment_db
-    username: postgres # .env üzerinden ezilecek
-    password: password # .env üzerinden ezilecek
+    username: ${DB_USER}
+    password: ${DB_PASS}
   jpa:
     hibernate:
       ddl-auto: update
