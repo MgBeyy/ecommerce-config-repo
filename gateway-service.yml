@@ -30,6 +30,10 @@ spring:
               uri: lb://basket-service
               predicates:
                 - Path=/api/v1/baskets/**
+            - id: payment-service
+              uri: lb://payment-service
+              predicates:
+                - Path=/api/v1/payments/**
 
 springdoc:
   api-docs:
@@ -46,6 +50,8 @@ springdoc:
         url: /product-service/v3/api-docs
       - name: Basket Service
         url: /basket-service/v3/api-docs
+      - name: Payment Service
+        url: /payment-service/v3/api-docs
 
 eureka:
   client:
@@ -75,6 +81,10 @@ spring:
               uri: lb://basket-service
               predicates:
                 - Path=/api/v1/baskets/**
+            - id: payment-service
+              uri: lb://payment-service
+              predicates:
+                - Path=/api/v1/payments/**
 
 eureka:
   client:
